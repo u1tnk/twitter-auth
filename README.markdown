@@ -6,9 +6,13 @@ TwitterAuth aims to provide a complete authentication and API access solution fo
 Installation
 ============
 
-You can include TwitterAuth as a gem in your project like so:
+You can include TwitterAuth as a gem in your Rails 2.3 project like so:
 
     config.gem 'twitter-auth', :lib => 'twitter_auth'
+
+For Rails 3 use:
+
+    gem "twitter-auth", :require => "twitter_auth/engine"
 
 Or you can install it as a traditional Rails plugin:
 
