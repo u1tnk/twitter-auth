@@ -1,4 +1,4 @@
-<% if options[:oauth] -%>
+<% if options[:auth_type] == 'oauth' -%>
 development:
   strategy: oauth
   oauth_consumer_key: devkey

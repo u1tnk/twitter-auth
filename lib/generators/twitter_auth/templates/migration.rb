@@ -3,10 +3,10 @@ class TwitterAuthMigration < ActiveRecord::Migration
     create_table :users do |t|
       t.string :twitter_id
       t.string :login
-<% if options[:oauth] -%>
+<% if options[:auth_type] == 'oauth' -%>
       t.string :access_token
       t.string :access_secret
-<% elsif options[:basic] -%>
+<% else -%>
       t.binary :crypted_password
       t.string :salt
 <% end -%>
