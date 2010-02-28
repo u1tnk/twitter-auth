@@ -1,4 +1,4 @@
-ActionController::Routing::Routes.draw do |map|
+Rails.application.routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.resource :session
