@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = @user.id
 
-    cookies[:remember_token] = @user.remember_me
+    self.remember_token = @user.remember_me
 
     authentication_succeeded 
   rescue Net::HTTPServerException => e

@@ -34,6 +34,10 @@ module TwitterAuth
       session[:user_id] = new_user.id
       @current_user = new_user
     end
+    
+    def remember_token=( remember_token )
+      cookies[:remember_token] = remember_token
+    end
 
     def authorized?
       !!current_user
