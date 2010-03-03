@@ -68,7 +68,7 @@ module TwitterAuth
     def logout_keeping_session!
       session[:user_id] = nil
       @current_user = nil
-      cookies.delete(:remember_token)
+      self.remember_token = nil
     end
   end
 end
