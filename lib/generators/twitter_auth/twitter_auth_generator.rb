@@ -16,7 +16,7 @@ module TwitterAuth
       
         
         def create_twitter_auth_setup
-          migration_template 'migration.rb', 'db/migrate', :migration_file_name => 'twitter_auth_migration'
+          migration_template 'migration.rb', 'db/migrate/twitter_auth_migration'
           template 'user.rb', File.join('app','models','user.rb')
           template 'twitter_auth.yml', File.join('config','twitter_auth.yml')
         end
