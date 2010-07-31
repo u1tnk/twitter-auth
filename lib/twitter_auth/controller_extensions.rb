@@ -34,6 +34,10 @@ module TwitterAuth
       session[:user_id] = new_user.id
       @current_user = new_user
     end
+    
+    def remember_token=( remember_token )
+      cookies[:remember_token] = remember_token
+    end
 
     def authorized?
       !!current_user
@@ -49,7 +53,7 @@ module TwitterAuth
     end
 
     def store_location
-      session[:return_to] = request.request_uri
+      session[:return_to] = request.fullpath
     end
 
     def redirect_back_or_default(default)
@@ -64,7 +68,7 @@ module TwitterAuth
     def logout_keeping_session!
       session[:user_id] = nil
       @current_user = nil
-      cookies.delete(:remember_token)
+      self.remember_token = nil
     end
   end
 end

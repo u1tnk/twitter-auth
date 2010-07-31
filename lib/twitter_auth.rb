@@ -66,8 +66,8 @@ module TwitterAuth
     end
 
     OAuth::Consumer.new(
-      config['oauth_consumer_key'],          
-      config['oauth_consumer_secret'],
+      ENV['oauth_consumer_key'] || config['oauth_consumer_key'],          
+      ENV['oauth_consumer_secret'] || config['oauth_consumer_secret'],
       options 
     )
   end
