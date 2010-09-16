@@ -6,28 +6,16 @@ TwitterAuth aims to provide a complete authentication and API access solution fo
 Installation
 ============
 
-You can include TwitterAuth as a gem in your Rails 2.3 project like so:
+`Gemfile`
 
-    config.gem 'twitter-auth', :lib => 'twitter_auth'
-
-For Rails 3 use:
-
-    gem "twitter-auth", :require => "twitter_auth/engine"
-
-Or you can install it as a traditional Rails plugin:
-
-    script/plugin install git://github.com/mbleigh/twitter-auth.git
-
-Note that because TwitterAuth utilizes Rails Engines functionality introduced in Rails 2.3, it will not work with earlier versions of Rails.
-
-**NOTE:** TwitterAuth requires Rails version 2.3 or later because it makes extensive use of the new support for Rails Engines. Previous versions of Rails are not supported.
+    gem 'twitter-auth', :require => 'twitter_auth/engine', :git => 'git://github.com/rokudenashi/twitter-auth.git', :branch => 'rails_3'
 
 Usage
 =====
 
 To utilize TwitterAuth in your application you will need to run the generator:
 
-    script/rails twitter_auth [auth_type=oauth (default) | auth_type=basic]
+    rails generate twitter_auth [auth_type=oauth (default) | auth_type=basic]
 
 This will generate a migration as well as set up the stubs needed to use the Rails Engines controllers and models set up by TwitterAuth. It will also create a User class that inherits from TwitterUser, abstracting away all of the Twitter authentication functionality and leaving you a blank slate to work with for your application. 
 
