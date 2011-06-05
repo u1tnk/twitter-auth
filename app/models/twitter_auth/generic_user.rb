@@ -33,6 +33,8 @@ module TwitterAuth
       v.validates_uniqueness_of :twitter_id, :message => "ID has already been taken."
       v.validates_uniqueness_of :remember_token, :allow_blank => true
     end
+
+    def self.table_name; 'users' end
     
     def self.new_from_twitter_hash(hash)
       raise ArgumentError, 'Invalid hash: must include screen_name.' unless hash.key?('screen_name')
