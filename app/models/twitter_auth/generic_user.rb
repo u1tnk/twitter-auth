@@ -1,6 +1,7 @@
 module TwitterAuth
   class GenericUser < ActiveRecord::Base
     attr_protected :twitter_id, :remember_token, :remember_token_expires_at
+    set_table_name 'users'
     
     TWITTER_ATTRIBUTES = [
       :name,
@@ -33,8 +34,6 @@ module TwitterAuth
       v.validates_uniqueness_of :remember_token, :allow_blank => true
     end
     
-    def self.table_name; 'users' end
-
     def self.new_from_twitter_hash(hash)
       raise ArgumentError, 'Invalid hash: must include screen_name.' unless hash.key?('screen_name')
 
